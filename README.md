@@ -1,0 +1,1 @@
+This is a simple To-Do-List project,where each to-do will be an object and will be dynamically created by using factories/constructors. Each to-do will have title, description, dueDate and priority.
