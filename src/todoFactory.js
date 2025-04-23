@@ -1,12 +1,10 @@
-function createTodo({ title, description = '', dueDate = null, priority = 'medium', notes = '', checklist = [] }) {
+function createTodo({ title, description = '', dueDate = null, priority = 'medium'}) {
   return {
     id: crypto.randomUUID(),
     title,
     description,
     dueDate,
     priority,
-    notes,
-    checklist,
     isCompleted: false,
 
     toggleComplete() {
