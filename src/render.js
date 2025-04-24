@@ -15,4 +15,29 @@ function renderProjects() {
   });
 }
 
+function renderTodos(projectId) {
+  const project = ProjectManager.getProjectById(projectId);
+  if (!project) return;
+
+  content.innerHTML = '';
+
+  project.todos.forEach(todo => {
+    const todoDiv = document.createElement('div');
+    todoDiv.classList.add('todo');
+    todoDiv.dataset.todoId = todo.id;
+
+    // Add priority color
+    todoDiv.classList.add(`priority-${todo.priority}`);
+
+    todoDiv.innerHTML = `
+      <h3>${todo.title}</h3>
+      <p>Due: ${todo.dueDate || 'No date'}</p>
+      <button class="expand-btn">Details</button>
+      <button class="delete-btn">Delete</button>
+    `;
+
+    content.appendChild(todoDiv);
+  });
+}
+
 
