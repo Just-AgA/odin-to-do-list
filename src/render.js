@@ -40,4 +40,16 @@ function renderTodos(projectId) {
   });
 }
 
+function renderExpandedTodo(todo) {
+  const modal = document.getElementById('modal');
+  modal.innerHTML = `
+    <h2>${todo.title}</h2>
+    <p>Description: ${todo.description}</p>
+    <p>Due Date: ${todo.dueDate}</p>
+    <p>Priority: ${todo.priority}</p>
+    <button id="close-modal">Close</button>
+  `;
+  modal.style.display = 'block';
+}
+
 
