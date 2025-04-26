@@ -58,4 +58,4 @@ function clearModal() {
   modal.innerHTML = '';
 }
 
-
+export { renderProjects, renderTodos, renderExpandedTodo, clearModal };
