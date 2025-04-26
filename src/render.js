@@ -52,4 +52,10 @@ function renderExpandedTodo(todo) {
   modal.style.display = 'block';
 }
 
+function clearModal() {
+  const modal = document.getElementById('modal');
+  modal.style.display = 'none';
+  modal.innerHTML = '';
+}
+
 
