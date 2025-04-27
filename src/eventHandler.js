@@ -28,7 +28,14 @@ function setupEventListeners() {
     }
   });
 
+ 
 
+  // Close modal
+  document.addEventListener('click', e => {
+    if (e.target.id === 'close-modal') {
+      clearModal();
+    }
+  });
 }
 
 export { setupEventListeners };
