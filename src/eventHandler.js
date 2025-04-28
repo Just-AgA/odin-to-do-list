@@ -28,7 +28,16 @@ function setupEventListeners() {
     }
   });
 
- 
+  // Add new project
+  document.getElementById('add-project-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const projectName = e.target.elements['project-name'].value;
+    ProjectManager.addProject(projectName);
+    renderProjects();
+    e.target.reset();
+  });
+
+  
 
   // Close modal
   document.addEventListener('click', e => {
