@@ -37,6 +37,22 @@ function setupEventListeners() {
     e.target.reset();
   });
 
+  // Add new todo
+  document.getElementById('add-todo-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const data = {
+      title: e.target.elements['todo-title'].value,
+      description: e.target.elements['todo-desc'].value,
+      dueDate: e.target.elements['todo-due'].value,
+      priority: e.target.elements['todo-priority'].value,
+    };
+    const projectId = e.target.elements['project-id'].value;
+
+    ProjectManager.addTodoToProject(projectId, data);
+    renderTodos(projectId);
+    e.target.reset();
+  });
+
   
 
   // Close modal
