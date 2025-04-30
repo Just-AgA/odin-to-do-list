@@ -53,7 +53,22 @@ function setupEventListeners() {
     e.target.reset();
   });
 
-  
+  // Handle todo actions (expand/delete)
+  content.addEventListener('click', e => {
+    const todoId = e.target.closest('.todo')?.dataset.todoId;
+    const projectId = document.querySelector('[data-project-id-selected]')?.dataset.projectId;
+
+    if (e.target.classList.contains('expand-btn')) {
+      const project = ProjectManager.getProjectById(projectId);
+      const todo = project.todos.find(t => t.id === todoId);
+      renderExpandedTodo(todo);
+    }
+
+    if (e.target.classList.contains('delete-btn')) {
+      ProjectManager.deleteTodoFromProject(projectId, todoId);
+      renderTodos(projectId);
+    }
+  });
 
   // Close modal
   document.addEventListener('click', e => {
